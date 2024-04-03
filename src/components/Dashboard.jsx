@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function Dashboard({users,setUsers,getUsers,edit,setEdit}) {
+function Dashboard({users,setUsers,getUsers,setEdit}) {
 
   const navigate = useNavigate()
 
@@ -70,7 +70,7 @@ function Dashboard({users,setUsers,getUsers,edit,setEdit}) {
     }
   }
   
-  const handleEdit = async (user) => {
+  const handleEdit = async(user) => {
     try {
       setEdit(user)
       navigate(`/edit-user/${user.id}`);
@@ -114,15 +114,11 @@ function Dashboard({users,setUsers,getUsers,edit,setEdit}) {
                 <td>{e.username}</td>
                 <td>{e.email}</td>
                 <td>
-                  {/* <b>STREET : </b>{e.address.street},<hr/><b>SUITE : </b>{e.address.suite},
-                  <hr/><b>CITY : </b>{e.address.city},<hr/><b>ZIPCODE : </b>{e.address.zipcode},
-                  <hr/><b>LATITUDE : </b>{e.address.geo.lat},<hr/><b>LONGITUDE : </b>{e.address.geo.lng} */}
                   {e.address.street}, {e.address.suite},<br/>{e.address.city},<br/>{e.address.zipcode},<br/>{e.address.geo.lat}, {e.address.geo.lng}
                 </td>
                 <td>{e.phone}</td>
                 <td>{e.website}</td>
                 <td>
-                {/* <b>COMPANY NAME : </b>{e.company.name},<hr/><b>CATCHPHRASE : </b>{e.company.catchPhrase},<hr/><b>BS : </b>{e.company.bs} */}
                 {e.company.name},<br/>{e.company.catchPhrase},<br/>{e.company.bs}
                 </td>
                 <td>

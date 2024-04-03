@@ -30,9 +30,9 @@ function App() {
     <TopBar/>
       <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/dashboard' element={<Dashboard users={users} setUsers={setUsers} getUsers={getUsers} edit={edit} setEdit={setEdit}/>}/>
+        <Route path='/dashboard' element={<Dashboard users={users} setUsers={setUsers} getUsers={getUsers} setEdit={setEdit}/>}/>
         <Route path='/add-user' element={<AddUser/>}/>
-        <Route path='/edit-user/:id' element={<EditUser users={users} setUsers={setUsers} getUsers={getUsers} edit={edit} setEdit={setEdit}/>}/>
+        <Route path='/edit-user/:id' element={<EditUser users={users} setUsers={setUsers} getUsers={getUsers} edit={edit} />}/>
         <Route path='*' element={<Navigate to='/'/>}/>
       </Routes>
     </BrowserRouter>

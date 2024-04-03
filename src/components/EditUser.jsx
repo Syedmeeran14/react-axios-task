@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useParams,useNavigate } from 'react-router-dom';
 import { API_URL } from '../App';
 
-function EditUser({users,setUsers,getUsers,edit,setEdit}) {
+function EditUser({users,setUsers,getUsers,edit}) {
 
   let [user,setUser] = useState([])
 
@@ -27,10 +27,6 @@ function EditUser({users,setUsers,getUsers,edit,setEdit}) {
   let {id} = useParams();
   let navigate = useNavigate();
   
-  // console.log('ID :'+id)
-  // console.log(users.length)
-  // console.log(user)
-
   const fetchDetails = async()=> {
     try {
       let found = false
@@ -38,6 +34,8 @@ function EditUser({users,setUsers,getUsers,edit,setEdit}) {
 
         if(users[i].id == id){
             found = true
+
+            //Fetching data from API
 
             // const res = await axios.get(`${API_URL}/${id}`);
             // const data = res.data;
@@ -56,6 +54,9 @@ function EditUser({users,setUsers,getUsers,edit,setEdit}) {
             // setCompanyName(data.company.name)
             // setCatchPharse(data.company.catchPhrase)
             // setBs(data.company.bs)
+
+
+            //Fetching data from Local State
             setUser(edit)
             setName(edit.name)
             setUserName(edit.username)
@@ -135,7 +136,7 @@ function EditUser({users,setUsers,getUsers,edit,setEdit}) {
   }
 
   return <>
-  {/* <div className='create-wrapper container-fluid'> */}
+ 
   <h3 className='text-center fw-bold fst-italic'>Edit User</h3>
     <div className='d-flex justify-content-center '>
   
@@ -203,7 +204,6 @@ function EditUser({users,setUsers,getUsers,edit,setEdit}) {
         </Form>
     </div>
 
-  {/* </div> */}
 </>
 }
 
